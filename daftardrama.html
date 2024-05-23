@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Drama</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .container > div {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: calc(100% - 60px);
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        .container img {
+            display: block;
+            margin: 0 auto 10px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .container h2 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+            text-align: center;
+        }
+
+        .container p {
+            line-height: 1.5;
+        }
+
+        .container a {
+            color: #0066cc;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .back a {
+            text-decoration: none;
+            display: block;
+            margin: 20px;
+            color: #0066cc;
+            text-align: right;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+
+            .container > div {
+                width: calc(100% - 20px);
+                margin: 10px;
+                padding: 15px;
+            }
+
+            h1 {
+                margin: 15px;
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.3em;
+            }
+
+            .back a {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <a href="./index.html"><h3>Home</h3></a>
+    </div>
+    <h1>Daftar Drama</h1>
+    <div class="container">
+        <div class="moonlover">
+            <h2>Moon Lovers : Scarlet Heart Ryeo</h2>
+            <img src="./gambar/moon lovers.jpg" alt="Moon Lovers">
+            <p>Tahun Rilis : 2016
+                <br>Genre : Drama, History
+                <br>Mengudara : Senin, Selasa
+                <br>Negara : Korea Selatan
+                <br>Episode : 20
+                <br>Durasi : 60 min
+                <br>Sutradara : Kim Kyu Tae
+                <br>Pemeran : Lee Joon Gi, Lee Ji Eun, IU
+            </p>
+            <a href="./moonlovers.html">Lihat Sinopsis</a>
+        </div>
+
+        <div class="derailment">
+            <h2>Derailment</h2>
+            <img src="./gambar/derailment.jpg" alt="Derailment">
+            <p>Tahun Rilis : 2023
+                <br>Genre : Drama, Fantasi, Misteri
+                <br>Mengudara : Senin - Jumat
+                <br>Negara : China
+                <br>Episode : 30
+                <br>Durasi : 43 min
+                <br>Sutradara : Shen Yang
+                <br>Pemeran : Lin yi, Liu Haocun
+            </p>
+            <a href="./derailmet.html">Lihat Sinopsis</a>
+        </div>
+
+        <div class="lovelyrunner">
+            <h2>Lovely Runner</h2>
+            <img src="./gambar/lovelyrunner.jpg" alt="Lovely Runner">
+            <p>Tahun Rilis : 2024
+                <br>Genre : Drama
+                <br>Mengudara : Senin, Selasa
+                <br>Negara : Korea Selatan
+                <br>Episode : 16
+                <br>Durasi : 1 hr 10 min
+                <br>Sutradara : Yoon Jong Ho
+                <br>Pemeran : Byeon Woo Seok, Kim Hye Yoon
+            </p>
+            <a href="./lovelyrunner.html">Lihat Sinopsis</a>
+        </div>
+
+        <div class="flowerofefil">
+            <h2>Flower Of Evil</h2>
+            <img src="./gambar/flowerofefil.jpg" alt="Flower Of Evil">
+            <p>Tahun Rilis : 2020
+                <br>Genre : Drama, Thriller
+                <br>Mengudara : Rabu, Kamis
+                <br>Negara : Korea Selatan
+                <br>Episode : 16
+                <br>Durasi : 1 hr 10 min
+                <br>Sutradara : Kim Chul Gyu
+                <br>Pemeran : Lee Joon Gi, Moon Chae Won
+            </p>
+            <a href="./flowerofefil.html">Lihat Sinopsis</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (sessionStorage.getItem('scrollPosition')) {
+                window.scrollTo(0, sessionStorage.getItem('scrollPosition'));
+                sessionStorage.removeItem('scrollPosition');
+            }
+
+            const links = document.querySelectorAll('.container a');
+            links.forEach(link => {
+                link.addEventListener('click', function () {
+                    sessionStorage.setItem('scrollPosition', window.scrollY);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
